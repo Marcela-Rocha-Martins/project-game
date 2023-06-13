@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 600px;
+  height: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 24px;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #666;
+}
+
+.playfield {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  background-color: rgb(199, 199, 199);
+  padding: 10px 20px;
+  width: 500px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+/* .kitten {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  
+} lembrar de rever essa parte do codigo depois
+
+.obstacle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+} */ 
