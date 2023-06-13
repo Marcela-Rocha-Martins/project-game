@@ -43,9 +43,7 @@ class Kitten {
         this.element.style.top = this.top + "px";
       }
     });
-  
   }
-  
     controlMovement() {
     if (this.isJumping) {
       this.top -= 1 * this.jumpSpeed;
@@ -74,6 +72,18 @@ class Kitten {
 
   destroy() {
     this.element.remove();
+  }
+
+  collidesWith(obstacle) {
+    const kittenRect = this.element.getBoundingClientRect();
+    const obstacleRect = obstacle.element.getBoundingClientRect();
+
+    return (
+      kittenRect.left < obstacleRect.right &&
+      kittenRect.right > obstacleRect.left &&
+      kittenRect.top < obstacleRect.bottom &&
+      kittenRect.bottom > obstacleRect.top
+    );
   }
 }
 
