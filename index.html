@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Puuuurfect Pursuit</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="heading">Puuuurfect Pursuit</div>
-      <div class="content">
-        <div class="playfield"></div>
-        <button id="start-button" class="button">Start</button>
-        <button id="pause-button" class="button">Pause</button>
-        <div id="score-display">Score: 0</div>
-        <div id="lives-display">Lives: 3</div>
+    <main>
+      <div>
+        <h1>This is a test</h1>
+        <div class="header">aqui vai uma linha + a foto com o nome do jogo</div>
+
+        <!-- start screen -->
+        <div id="game-start"></div>
+
+        <!-- game screen -->
+        <div class="container">
+          <div class="game-info">
+            <div id="score-display">Score: 0</div>
+            <div id="lives-display">Lives: 3</div>
+          </div>
+
+          <div class="content">
+            <div class="playfield"></div>
+          </div>
+          <button id="start-button" class="button">Start</button>
+        </div>
+
+        <!-- game over screen -->
+        <div class="container">
+          <div id="game-over">
+            <img
+              src="https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?auto=compress&fm=pjpg"
+              alt=""
+              class="botao"
+            />
+            <h1>Game Over</h1>
+            <br />
+            <button id="restart-button" class="button">Restart</button>
+          </div>
+        </div>
+
+        <!-- You won screen -->
+        <div id="you-won"></div>
       </div>
-    </div>
-    <script src="collectables.js"></script>
-    <script src="obstacles.js"></script>
+    </main>
+
+    <script src="items.js"></script>
     <script src="kitten.js"></script>
     <script src="gameplay.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
-
