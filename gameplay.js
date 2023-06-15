@@ -4,7 +4,7 @@ class Gameplay {
     this.gameEndScreen = document.getElementById("game-over");
     this.gameIsOver = false;
     this.kitten = new Kitten(this.playfield, this);
-    this.itemList = [Snacks, AngryLady, Vacuum];
+    this.itemList = [Drone, Vacuum];
     this.itemsOnScreen = [];
     this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg0.png')", 30, 1);
     this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg1.png')", 20, 2);
@@ -14,6 +14,11 @@ class Gameplay {
     this.itemsInterval = setInterval(() => {
       this.createItem();
       }, 3000);
+
+    this.itemsInterval = setInterval(() => {
+      let newListItemOnScreen = new Snacks(this.playfield, this.kitten, this.top, this.itemsOnScreen);
+      this.itemsOnScreen.push(newListItemOnScreen);
+      }, 4300);
   }
   
     createItem() {
@@ -31,7 +36,7 @@ class Gameplay {
         
         this.kitten.destroy(); 
         this.playfield.style.display = "none";
-        this.gameEndScreen.style.display = "block";
+        this.gameEndScreen.style.display = "flex";
       }
 
     restartGame() {

@@ -3,6 +3,7 @@ class Kitten {
     this.playfield = playfield;
     this.gameplay = gameplay;
     this.score = 0;
+    this.scoreLifeCounter = 0
     this.lives = 3;
     this.left = 80;
     this.initialTop = 400;
@@ -11,6 +12,7 @@ class Kitten {
     this.initialHeight = 95;
     this.height = this.initialHeight;
     this.crounchedHeight = 65;
+    this.updateSpeed = 20;
     
     this.element = document.createElement("div");
     this.element.className = "kitten";
@@ -21,30 +23,39 @@ class Kitten {
     this.element.style.height = `${this.height}px`;
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
-    this.runningKittenAnim = "url('/assets/kitten and items/catset_assets/run.gif')";
-    this.jumpingKittenAnim = "url('/assets/kitten and items/catset_assets/jump.gif')";
-    this.fallingKittenAnim = "url('/assets/kitten and items/catset_assets/fall.gif')";
-    this.crounchKittenAnim = "url('/assets/kitten and items/catset_assets/crounch.gif";
+    this.runningKittenAnim = "url('/assets/kitten-items/catset_assets/run.gif')";
+    this.jumpingKittenAnim = "url('/assets/kitten-items/catset_assets/jump.gif')";
+    this.fallingKittenAnim = "url('/assets/kitten-items/catset_assets/fall.gif')";
+    this.crounchKittenAnim = "url('/assets/kitten-items/catset_assets/crounch.gif";
     this.element.style.backgroundImage = this.runningKittenAnim;
     this.element.style.backgroundSize = 'cover';
     this.element.style.backgroundRepeat = 'no-repeat';
+    this.jumpSound = 'new Audio("/assets/sounds/toy-button-105724.mp3")'
+
 
     this.isCrouching = false;
     this.isJumping = false;
     this.isFalling = false;
-    this.jumpSpeed = 3.4;
-    this.jumpHeight = 100;
+    this.jumpSpeed = 7;
+    this.jumpHeight = 250;
+    this.jumpDurationInSeconds = 0.7;
+    this.jumpCycleLength = this.jumpDurationInSeconds * ( 1000 / this.updateSpeed )
+    this.jumpMaxHeight = 190;
+    this.jumpMomentum = this.jumpCycleLength;
+    this.jumpAcceleration = (2 * this.jumpMaxHeight) / (this.jumpCycleLength * this.jumpCycleLength)
 
 
     this.scoreDisplay = document.getElementById("score-display");
     this.livesDisplay = document.getElementById("lives-display");
 
-    this.checkJumpInterval = setInterval(() => this.controlMovement(), 20); 
+    this.checkJumpInterval = setInterval(() => this.controlMovement(), this.updateSpeed); 
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowUp") {
+      console.log(event.key)
+      if (event.key === "ArrowUp" || event.key == " ") {
         if (!this.isJumping && !this.isFalling && !this.isCrouching) {
           this.isJumping = true;
+          jumpSound.play();
           this.element.style.backgroundImage = this.jumpingKittenAnim;  
         }
       } else if (event.key === "ArrowDown") {
@@ -72,21 +83,25 @@ class Kitten {
   }
     controlMovement() {
     if (this.isJumping) {
-      this.top -= this.jumpSpeed;
+      this.top -= this.jumpMomentum * this.jumpAcceleration;
       this.element.style.top = this.top + "px";
+      --this.jumpMomentum
     } 
-    if (this.top <= this.initialTop - this.jumpHeight){
+    if (this.jumpMomentum == 0){
       this.isJumping = false;
       this.isFalling = true;
       this.element.style.backgroundImage = this.fallingKittenAnim;
 
     } else if (this.top >= this.initialTop && this.isFalling) {
+      this.jumpMomentum = this.jumpCycleLength
       this.top = this.initialTop
       this.isFalling = false;
+      this.element.style.top = this.top + "px";
       this.element.style.backgroundImage = this.runningKittenAnim;
     }
     if (this.isFalling) {
-      this.top +=  this.jumpSpeed;
+      ++this.jumpMomentum
+      this.top +=  this.jumpMomentum * this.jumpAcceleration;
       this.element.style.top = this.top + "px";
     }
   }
@@ -96,20 +111,29 @@ class Kitten {
     const itemRect = item.element.getBoundingClientRect();
   
     if (
-      kittenRect.left < itemRect.right &&
-      kittenRect.right > itemRect.left &&
-      kittenRect.top < itemRect.bottom &&
-      kittenRect.bottom > itemRect.top
+      kittenRect.left < (itemRect.right - 25) &&
+      kittenRect.right > (itemRect.left + 25) &&
+      kittenRect.top < (itemRect.bottom - 5) &&
+      kittenRect.bottom > (itemRect.top + 25)
     ) {
       return true;
     } else {
       return false;
     }
   }
-
     changingScore() {
       this.score += 1;
+      ++ this.scoreLifeCounter
+      if (this.scoreLifeCounter == 5) {
+        this.scoreLifeCounter = 0
+        this.increaseLives();
+      }
       this.scoreDisplay.textContent = "Score: " + this.score;
+    }
+
+    increaseLives() {
+      ++this.lives
+      this.livesDisplay.textContent = "Lives: " + this.lives;
     }
   
     decreaseLives() {

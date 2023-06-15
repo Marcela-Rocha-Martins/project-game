@@ -4,6 +4,35 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Magic Retro";
+  src: url("/assets/game-fonts/magic-retro-font/MagicRetro-L363D.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Atari Classic";
+  src: url("/assets/game-fonts/atari-classic/AtariClassic-gry3.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Atari ClassicChunky";
+  src: url("/assets/game-fonts/atari-classic/AtariClassicChunky-PxXP.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Atari ClassicExtraSmooth";
+  src: url("/assets/game-fonts/atari-classic/AtariClassicExtrasmooth-LxZy.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Atari ClassicSmooth";
+  src: url("/assets/game-fonts/atari-classic/AtariClassicSmooth-XzW2.ttf")
+    format("truetype");
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -33,53 +62,46 @@ section .catsbg {
   transform: rotate(-30deg);
   justify-content: center;
   align-items: center;
-
 }
 
 i {
-    color: rgba(61, 58, 59, 0.3);
-    transition: 1s;
-    padding: 0 5px;
-    user-select: none;
-    cursor: default;
+  color: rgba(61, 58, 59, 0.3);
+  transition: 1s;
+  padding: 0 5px;
+  user-select: none;
+  cursor: default;
 }
 
 i:hover {
   transition: 0s;
-  color:#FF5277;
+  color: #ff5277;
   text-shadow: 0 0 120px#FF5277;
 }
 
 section .catsbg div {
- animation: animate1 80s linear infinite;
- animation-delay: -80s;
+  animation: animate1 80s linear infinite;
+  animation-delay: -80s;
 }
 
 section .catsbg div:nth-child(2) {
   animation: animate2 80s linear infinite;
   animation-delay: -40s;
- }
+}
 
-@keyframes animate1 
-{
-  0% 
-  {
-    transform: translateX(100%);    
+@keyframes animate1 {
+  0% {
+    transform: translateX(100%);
   }
-  100%
-  {
+  100% {
     transform: translateX(-100%);
   }
 }
 
-@keyframes animate2 
-{
-  0% 
-  {
-    transform: translateX(0%);    
+@keyframes animate2 {
+  0% {
+    transform: translateX(0%);
   }
-  100%
-  {
+  100% {
     transform: translateX(-200%);
   }
 }
@@ -87,36 +109,30 @@ section .catsbg div:nth-child(2) {
 section .catsbg:nth-child(even) div {
   animation: animate3 80s linear infinite;
   animation-delay: -80s;
- }
- 
- section .catsbg:nth-child(even) div:nth-child(2){
-   animation: animate4 80s linear infinite;
-   animation-delay: -40s;
+}
+
+section .catsbg:nth-child(even) div:nth-child(2) {
+  animation: animate4 80s linear infinite;
+  animation-delay: -40s;
+}
+
+@keyframes animate3 {
+  0% {
+    transform: translateX(-100%);
   }
- 
- @keyframes animate3 
- {
-   0% 
-   {
-     transform: translateX(-100%);    
-   }
-   100%
-   {
-     transform: translateX(100%);
-   }
- }
- 
- @keyframes animate4 
- {
-   0% 
-   {
-     transform: translateX(-200%);    
-   }
-   100%
-   {
-     transform: translateX(-0%);
-   }
- }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animate4 {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(-0%);
+  }
+}
 
 /* bg settings over --------------------------- */
 
@@ -132,14 +148,8 @@ section .catsbg:nth-child(even) div {
   z-index: 0; /* Ajuste o valor de z-index conforme necessário */
 }
 
-.header h1 {
-  font-size: 48px;
-  font-weight: bold;
-  color: #fff;
-}
-
 .playfield {
-  display: flex;
+  display: none;
   border: 3px;
   border-radius: 10px;
   position: relative;
@@ -152,13 +162,33 @@ section .catsbg:nth-child(even) div {
   z-index: 3;
 }
 
+.game-info {
+  position: absolute;
+  top: 0;
+  display: none;
+  padding: 20px;
+}
+
+#lives-display {
+  font-family: "Atari Classic";
+  font-size: 20px;
+  color: white;
+}
+
+#score-display {
+  font-family: "Atari Classic";
+  font-size: 20px;
+  color: white;
+}
+
 .kitten {
   z-index: 99;
-
 }
 
 .item {
-  z-index:90;
+  z-index: 90;
+  background-size: "cover";
+  background-repeat: "no-repeat";
 }
 
 .gamebg {
@@ -169,51 +199,6 @@ section .catsbg:nth-child(even) div {
   height: 100%;
   position: absolute;
 }
-
-/* parallax effect ----------------------------------------- */
-/* 
-.parallax-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-repeat: repeat-x;
-  animation: parallax-scroll 20s linear infinite;
-  transition: transform 0.1s ease-out;
-  background-size: cover;
-}
-
-.layer1 {
-  background-image: url('/assets/playfield/bg0.png');
-  animation-duration: 20s;
-}
-
-.layer2 {
-  background-image: url('/assets/playfield/bg1.png');
-  animation-duration: 15s;
-}
-
-.layer3 {
-  background-image: url('/assets/playfield/bg2.png');
-  animation-duration: 5s;
-}
-.layer4 {
-  background-image: url('/assets/playfield/bg3.png');
-  animation-duration: 10s;
-}
-
-
-@keyframes parallax-scroll {
-  0% {
-    background-position: 0% 0;
-  }
-  100% {
-    background-position: 80% 0;
-  } */
-
-/* parallax effect ----------------------------------------- */
 
 .container {
   position: relative;
@@ -236,23 +221,60 @@ section .catsbg:nth-child(even) div {
   text-align: center;
 }
 
-.content button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+.intro {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
-.content button:hover {
-  background-color: #666;
+.game-start {
+  background-color: #0A979C;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+}
+
+h1 {
+  font-family: "Atari Classic";
+  font-size: 50px;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  font-family: "Atari ClassicExtraSmooth";
+  text-align: center;
+}
+
+#start-button {
+  padding: 20px 60px;
+  background-color: #ff5277;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Atari ClassicExtraSmooth";
+  text-decoration:solid;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+#start-button:hover {
+  background-color: #fff;
+  color: black;
 }
 
 #game-over {
@@ -261,13 +283,13 @@ section .catsbg:nth-child(even) div {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to top, #7e5db8, #c0a3f2, #CFB6FA);
+
   z-index: 2;
   display: none;
   flex-direction: column;
   align-items: center;
+
   justify-content: center;
-  display: none;
 }
 
 #game-over img {
@@ -275,6 +297,7 @@ section .catsbg:nth-child(even) div {
   height: auto;
   max-width: 500px;
   max-height: 300px;
+  border-radius: 10px;
 }
 
 #game-over h1 {
@@ -285,25 +308,19 @@ section .catsbg:nth-child(even) div {
   margin: 10px 0;
 }
 
-#game-over button {
-  display: inline-block;
-  padding: 10px 20px;
+#restart-button {
+  padding: 20px 30px;
   background-color: #fff;
-  color: #000;
-  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-family: "Atari ClassicExtraSmooth";
+  text-decoration:solid;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
-#game-over button:hover {
-  background-color: #ccc;
-}
-
-.game-info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-  color: #fff;
-  font-size: 50px;
+#restart-button:hover {
+  background-color: #ff5277;
+  color: white;
 }
