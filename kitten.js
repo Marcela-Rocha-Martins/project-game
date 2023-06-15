@@ -7,10 +7,10 @@ class Kitten {
     this.left = 80;
     this.initialTop = 400;
     this.top = this.initialTop;
-    this.width = 88;
-    this.initialHeight = 76;
+    this.width = 110;
+    this.initialHeight = 95;
     this.height = this.initialHeight;
-    this.crounchedHeight = 52;
+    this.crounchedHeight = 65;
     
     this.element = document.createElement("div");
     this.element.className = "kitten";

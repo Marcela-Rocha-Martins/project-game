@@ -8,18 +8,6 @@ class Item {
     this.kitten = kitten;
     this.itemsOnScreen = itemsOnScreen;
 
-    // this.playfield = playfield;
-    // this.gameplay = gameplay;
-    // this.score = 0;
-    // this.lives = 3;
-    // this.left = 80;
-    // this.initialTop = 400;
-    // this.top = this.initialTop;
-    // this.width = 88;
-    // this.initialHeight = 76;
-    // this.height = this.initialHeight;
-    // this.crounchedHeight = 52;
-
     this.element = document.createElement("div");
     this.element.className = "item";
     this.element.style.position = "absolute";

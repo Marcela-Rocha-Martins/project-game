@@ -6,11 +6,14 @@ class Gameplay {
     this.kitten = new Kitten(this.playfield, this);
     this.itemList = [Snacks, AngryLady, Vacuum];
     this.itemsOnScreen = [];
+    this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg0.png')", 30, 1);
+    this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg1.png')", 20, 2);
+    this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg2.png')", 10, 3);
+    this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg3.png')", 1, 4);
 
     this.itemsInterval = setInterval(() => {
       this.createItem();
       }, 3000);
-  
   }
   
     createItem() {
