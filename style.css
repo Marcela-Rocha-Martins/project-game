@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   background-image: linear-gradient(to top, #7e5db8, #c0a3f2, #CFB6FA);
+  overflow: hidden;
 }
 
 
@@ -18,8 +19,8 @@ body {
   justify-content: center;
   background-color: rgb(199, 199, 199);
   padding: 10px 20px;
-  width: 500px;
-  height: 300px;
+  width: 1000px;
+  height: 600px;
   margin: 0 auto;
   overflow: hidden;
   z-index: 2;

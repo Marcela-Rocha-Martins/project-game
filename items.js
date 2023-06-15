@@ -1,12 +1,24 @@
 class Item {
   constructor(playfield, kitten, top, itemsOnScreen) {
     this.playfield = playfield;
-    this.width = 20;
-    this.height = 20;
-    this.left = 490; // Initialize the obstacle to the right of the playfield
-    this.top = top; 
+    this.width = 50;
+    this.height = 50;
+    this.left = 990; // Initialize the obstacle to the right of the playfield
+    this.top = top;
     this.kitten = kitten;
     this.itemsOnScreen = itemsOnScreen;
+
+    // this.playfield = playfield;
+    // this.gameplay = gameplay;
+    // this.score = 0;
+    // this.lives = 3;
+    // this.left = 80;
+    // this.initialTop = 400;
+    // this.top = this.initialTop;
+    // this.width = 88;
+    // this.initialHeight = 76;
+    // this.height = this.initialHeight;
+    // this.crounchedHeight = 52;
 
     this.element = document.createElement("div");
     this.element.className = "item";
@@ -24,7 +36,7 @@ class Item {
     this.move();
 
     // If the kitten collides with an item
-    this.collisionsGameActions()
+    this.collisionsGameActions();
   }
 
   move() {
@@ -36,45 +48,43 @@ class Item {
       this.element.style.left = `${this.left}px`;
     }
   }
-  
+
   collisionsGameActions() {
     const collidesChecking = this.kitten.checkCollidesWith(this);
-  
+
     if (collidesChecking) {
       if (this instanceof Vacuum || this instanceof AngryLady) {
         // Vacuum and AngryLady collidem com o gatinho
         this.kitten.decreaseLives();
         this.destroy();
-
       } else if (this instanceof Snacks) {
         // Snacks colidem com o gatinho, aumenta as vidas
         this.kitten.changingScore();
         this.destroy();
       }
-
     } else {
-      if ((this instanceof Vacuum || this instanceof AngryLady) && this.left + this.width < this.kitten.left) {
+      if (
+        (this instanceof Vacuum || this instanceof AngryLady) &&
+        this.left + this.width < this.kitten.left
+      ) {
         // Vacuum ou AngryLady estão à esquerda do gatinho sem colidir, aumenta o score
         this.kitten.changingScore();
         this.destroy();
       }
-      
     }
   }
 
   destroy() {
     clearInterval(this.moveInterval); // Limpa o intervalo de atualização de movimento
-    
-    
-      //this.gameplay.itemsOnScreen.splice(index, 1); // Remove o item da lista
-    
-    this.element.remove(); 
-  }
 
+    //this.gameplay.itemsOnScreen.splice(index, 1); // Remove o item da lista
+
+    this.element.remove();
+  }
 }
-  class Vacuum extends Item {
+class Vacuum extends Item {
   constructor(playfield, kitten, top, itemsOnScreen) {
-    super(playfield, kitten, 250, itemsOnScreen); // Chama o construtor pai com o valor atualizado de 'top'
+    super(playfield, kitten, 400, itemsOnScreen); // Chama o construtor pai com o valor atualizado de 'top'
     this.element.style.background = "red";
   }
   update() {
@@ -82,20 +92,19 @@ class Item {
   }
 }
 
-  class Snacks extends Item {
+class Snacks extends Item {
   constructor(playfield, kitten, top, itemsOnScreen) {
-    super(playfield, kitten, 260, itemsOnScreen); // Chama o construtor pai com o valor atualizado de 'top'
+    super(playfield, kitten, 440, itemsOnScreen); // Chama o construtor pai com o valor atualizado de 'top'
     this.element.style.background = "pink";
   }
   update() {
     super.update(); // Call the parent's update method
   }
-
 }
-  class AngryLady extends Item {
+class AngryLady extends Item {
   constructor(playfield, kitten, top, itemsOnScreen) {
-    super(playfield, kitten, 230, itemsOnScreen); // Chama o construtor pai com o valor atualizado de 'top'
-    this.element.style.background = "yellow";
+    super(playfield, kitten, 360, itemsOnScreen); // Chama o construtor pai com o valor atualizado de 'top'
+    this.element.style.backgroundImage = "";
   }
 
   update() {
