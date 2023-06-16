@@ -64,7 +64,7 @@ class Vacuum extends Item {
     this.img = document.createElement("img");
     this.img.style.width = "100%";
     this.img.style.height = "100%";
-    this.img.src = "assets/kittenitems/vacuumcleaner.PNG";
+    this.img.src = "assets/kittenitems/vaccum.PNG";
     this.element.appendChild(this.img);
   }
 
