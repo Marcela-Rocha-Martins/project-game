@@ -64,7 +64,7 @@ class Vacuum extends Item {
     this.img = document.createElement("img");
     this.img.style.width = "100%";
     this.img.style.height = "100%";
-    this.img.src = "/assets/kitten-items/vacuum-cleaner.png";
+    this.img.src = "assets/kittenitems/vacuumcleaner.PNG";
     this.element.appendChild(this.img);
   }
 
@@ -79,7 +79,7 @@ class Snacks extends Item {
     this.img = document.createElement("img");
     this.img.style.width = "50%";
     this.img.style.height = "50%";
-    this.img.src = "/assets/kitten-items/snack.png";
+    this.img.src = "assets/kittenitems/snack.PNG";
     this.element.appendChild(this.img);
    
    }
@@ -95,7 +95,7 @@ class Drone extends Item {
     this.img = document.createElement("img");
     this.img.style.width = "100%";
     this.img.style.height = "100%";
-    this.img.src = "/assets/kitten-items/drone.gif";
+    this.img.src = "assets/kittenitems/drone.GIF";
     this.element.appendChild(this.img);
   }
 

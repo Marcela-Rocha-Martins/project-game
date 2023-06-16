@@ -30,8 +30,8 @@ class Gameplay {
       1,
       4
     );
-    this.soundtrack = new Audio("/assets/sounds/silver-sparkles-150619.mp3");
-    this.gameOverSound = new Audio("/assets/sounds/game-over.mp3");
+    this.soundtrack = new Audio("assets/sounds/soundtrack.mp3");
+    this.gameOverSound = new Audio("assets/sounds/game-over.mp3");
     this.soundtrack.loop = true; // Set the soundtrack to loop
     this.soundtrack.play();
 

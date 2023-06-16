@@ -25,13 +25,13 @@ class Kitten {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
     this.runningKittenAnim =
-      "url('/assets/kitten-items/catset_assets/run.gif')";
+      "url('assets/kittenitems/kittens/run.GIF')";
     this.jumpingKittenAnim =
-      "url('/assets/kitten-items/catset_assets/jump.gif')";
+      "url('assets/kittenitems/kittens/jump.GIF')";
     this.fallingKittenAnim =
-      "url('/assets/kitten-items/catset_assets/fall.gif')";
+      "url('assets/kittenitems/kittens/fall.GIF')";
     this.crounchKittenAnim =
-      "url('/assets/kitten-items/catset_assets/crounch.gif";
+      "url('assets/kittenitems/kittens/crounch.GIF')";
     this.element.style.backgroundImage = this.runningKittenAnim;
     this.element.style.backgroundSize = "cover";
     this.element.style.backgroundRepeat = "no-repeat";
