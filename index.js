@@ -4,7 +4,7 @@ window.onload = function() {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const introScreen = document.getElementById("intro");
-  let gameplay = null; // Variable to track if there is a game in progress
+  let gameplay = null; //  track if there is a game in progress
 
   startButton.addEventListener("click", function() {
       if (!gameplay) { // Checks if there is no game in progress

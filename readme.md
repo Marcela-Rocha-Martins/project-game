@@ -3,7 +3,6 @@
 Cat X Machine is a simple web-based game where you control a cat character and try to avoid machines while collecting snacks to gain lives. Use the keyboard to control the cat's jump and crouch movements.
 
 ## How to Play
-
 - Press ARROW UP or SPACE to make the cat jump.
 - Press ARROW DOWN to make the cat crouch.
 - Avoid the machines and obstacles.
@@ -39,7 +38,7 @@ External library:
 
 ## Kitten Class
 
-The `Kitten` class represents the cat character in the game. It manages the cat's position, movement, animations, collision detection, and interaction with other game elements.
+The `Kitten` class represents the cat player in the game. It manages the cat's position, movement, animations, collision detection, and interaction with other game elements.
 
 ### Properties
 
