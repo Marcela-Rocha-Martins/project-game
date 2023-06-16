@@ -8,30 +8,30 @@ class Gameplay {
     this.itemsOnScreen = []; // Array to store the items on the screen
     this.gameBg = new Gamebg(
       this.playfield,
-      "url('./assets/playfield/bg0.PNG')",
+      "url('assets/playfield/bg.PNG')",
       30,
       1
     );
     this.gameBg = new Gamebg(
       this.playfield,
-      "url('assets/playfield/bg1.PNG')",
+      "url('assets/playfield/bgg.PNG')",
       20,
       2
     );
     this.gameBg = new Gamebg(
       this.playfield,
-      "url('assets/playfield/bg2.PNG')",
+      "url('assets/playfield/bggg.PNG')",
       10,
       3
     );
     this.gameBg = new Gamebg(
       this.playfield,
-      "url('assets/playfield/bg3.PNG')",
+      "url('assets/playfield/bgggg.PNG')",
       1,
       4
     );
     this.soundtrack = new Audio("assets/sounds/soundtrack.mp3");
-    this.gameOverSound = new Audio("assets/sounds/gameover.mp3.");
+    this.gameOverSound = new Audio("assets/sounds/gameover.mp3");
     this.soundtrack.loop = true; // Set the soundtrack to loop
     this.soundtrack.play();
 
