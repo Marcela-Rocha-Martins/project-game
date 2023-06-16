@@ -81,12 +81,10 @@ class Snacks extends Item {
     this.img.style.height = "50%";
     this.img.src = "assets/kittenitems/snack.PNG";
     this.element.appendChild(this.img);
-   
-   }
+  }
   update() {
     super.update(); // Call the parent's update method
   }
-
 }
 
 class Drone extends Item {

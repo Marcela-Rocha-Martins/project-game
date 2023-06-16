@@ -35,9 +35,9 @@ class Kitten {
     this.element.style.backgroundImage = this.runningKittenAnim;
     this.element.style.backgroundSize = "cover";
     this.element.style.backgroundRepeat = "no-repeat";
-    this.jumpSound = new Audio("/assets/sounds/jump.mp3");
-    this.damageSound = new Audio("/assets/sounds/hurt.mp3");
-    this.snackSound = new Audio("/assets/sounds/snack.mp3");
+    this.jumpSound = new Audio("assets/sounds/jump.mp3");
+    this.damageSound = new Audio("assets/sounds/hurt.mp3");
+    this.snackSound = new Audio("assets/sounds/snack.mp3");
 
     // initial state of the kitten and movenment limits
     this.isCrouching = false;
