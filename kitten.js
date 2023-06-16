@@ -30,7 +30,9 @@ class Kitten {
     this.element.style.backgroundImage = this.runningKittenAnim;
     this.element.style.backgroundSize = 'cover';
     this.element.style.backgroundRepeat = 'no-repeat';
-    this.jumpSound = 'new Audio("/assets/sounds/toy-button-105724.mp3")'
+    this.jumpSound = new Audio("/assets/sounds/jump.mp3");
+    this.damageSound = new Audio("/assets/sounds/hurt.mp3");
+    this.snackSound = new Audio("/assets/sounds/snack.mp3");
 
 
     this.isCrouching = false;
@@ -55,7 +57,7 @@ class Kitten {
       if (event.key === "ArrowUp" || event.key == " ") {
         if (!this.isJumping && !this.isFalling && !this.isCrouching) {
           this.isJumping = true;
-          jumpSound.play();
+          this.jumpSound.play();
           this.element.style.backgroundImage = this.jumpingKittenAnim;  
         }
       } else if (event.key === "ArrowDown") {
@@ -128,17 +130,19 @@ class Kitten {
         this.scoreLifeCounter = 0
         this.increaseLives();
       }
-      this.scoreDisplay.textContent = "Score: " + this.score;
+      this.scoreDisplay.textContent = "score: " + this.score;
+      this.snackSound.play();
     }
 
     increaseLives() {
       ++this.lives
-      this.livesDisplay.textContent = "Lives: " + this.lives;
+      this.livesDisplay.textContent = "lives: " + this.lives;
     }
   
     decreaseLives() {
         -- this.lives;
-        this.livesDisplay.textContent = "Lives: " + this.lives;
+        this.livesDisplay.textContent = "lives: " + this.lives;
+        this.damageSound.play();
 
         if (this.lives === 0) {
           this.gameplay.gameIsOver = true;

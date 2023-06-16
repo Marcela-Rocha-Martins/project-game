@@ -10,6 +10,10 @@ class Gameplay {
     this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg1.png')", 20, 2);
     this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg2.png')", 10, 3);
     this.gameBg = new Gamebg(this.playfield, "url('/assets/playfield/bg3.png')", 1, 4);
+    this.soundtrack = new Audio("/assets/sounds/silver-sparkles-150619.mp3");
+    this.gameOverSound = new Audio("/assets/sounds/game-over.mp3");
+    this.soundtrack.loop = true;
+    this.soundtrack.play();
 
     this.itemsInterval = setInterval(() => {
       this.createItem();
@@ -29,6 +33,8 @@ class Gameplay {
       }
 
     gameOver() {
+      this.soundtrack.pause();
+      this.gameOverSound.play();
         clearInterval(this.itemsInterval);
           for (let i = 0; i < this.itemsOnScreen.length; i++) {
           this.itemsOnScreen[i].destroy();
