@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "PressStart"; 
-  src: url("/assets/font/gamefont.ttf") format("truetype");
+  src: url("assets/font/gamefont.ttf") format("truetype");
 }
 
 body {
