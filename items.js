@@ -23,7 +23,6 @@ class Item {
   update() {
     this.move();
 
-    // If the kitten collides with an item
     this.collisionsGameActions();
   }
 
@@ -82,11 +81,12 @@ class Snacks extends Item {
     this.img.style.height = "50%";
     this.img.src = "/assets/kitten-items/snack.png";
     this.element.appendChild(this.img);
-  }
-
+   
+   }
   update() {
     super.update(); // Call the parent's update method
   }
+
 }
 
 class Drone extends Item {

@@ -49,15 +49,19 @@ class Kitten {
     this.jumpHeight = 250;
     this.jumpDurationInSeconds = 0.7;
 
-    // calculates the number of update cycles required to complete a jump based on the jump duration and the update speed. Converts the duration to milliseconds and divides it by the update speed to obtain the number of cycles.
+    //calculates the number of update cycles required to complete a jump based on the jump duration and the update speed. 
+    //It determines the length of each cycle.
     this.jumpCycleLength =
       this.jumpDurationInSeconds * (1000 / this.updateSpeed);
+    
+    //defines the maximum height the kitten can reach during a jump. It is set to 190 pixels.
     this.jumpMaxHeight = 190;
 
-    //defines the initial momentum of the jump, which corresponds to the number of cycles required to reach the maximum height. It is initially set to the value of jumpCycleLength.
+    //represents the initial momentum of the jump. It is initially set to the value of jumpCycleLength.
     this.jumpMomentum = this.jumpCycleLength;
 
-    //calculates the acceleration of the jump based on the maximum height and the number of cycles. Determines how the kitten's position should be updated in each cycle to simulate a smooth jump.
+    //calculates the acceleration of the jump based on the maximum height and the number of cycles. 
+    //It determines how the kitten's position should be updated in each cycle to simulate a smooth jump.    
     this.jumpAcceleration =
       (2 * this.jumpMaxHeight) / (this.jumpCycleLength * this.jumpCycleLength);
 
@@ -106,8 +110,12 @@ class Kitten {
       this.top -= this.jumpMomentum * this.jumpAcceleration;
       this.element.style.top = this.top + "px";
       --this.jumpMomentum;
+      // if the kitten is jumping, its top position is updated by subtracting the product of jumpMomentum and jumpAcceleration. 
+      // This simulates the upward movement of the jump.
     }
+
     if (this.jumpMomentum == 0) {
+    //means the kitten has reached the top of the jump, and the isJumping flag is set to false, indicating that the kitten is now falling.
       this.isJumping = false;
       this.isFalling = true;
       this.element.style.backgroundImage = this.fallingKittenAnim;
@@ -140,7 +148,7 @@ class Kitten {
       return false;
     }
   }
-  
+
   changingScore() {
     this.score += 1;
     ++this.scoreLifeCounter;
