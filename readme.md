@@ -191,6 +191,6 @@ The `Gamebg` class manages the game's background and playfield.
 
 To use the provided code, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/Marcela-Rocha-Martins/project-game1`
+1. Clone the repository: `git clone https://github.com/Marcela-Rocha-Martins/project-game-catXmachine`
 2. Open the `index.html` file in a web browser.
 3. Follow the on-screen instructions to play the game.
