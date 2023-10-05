@@ -153,11 +153,16 @@ class Kitten {
     this.score += 1;
     ++this.scoreLifeCounter;
     if (this.scoreLifeCounter == 5) {
-      this.scoreLifeCounter = 0;
+      // this.scoreLifeCounter = 0;
       this.increaseLives();
     }
     this.scoreDisplay.textContent = "score: " + this.score;
     this.snackSound.play();
+
+    if (this.scoreLifeCounter == 10){
+      this.gameplay.gameIsWon = true;
+      this.gameplay.gameWon();
+    }
   }
 
   increaseLives() {

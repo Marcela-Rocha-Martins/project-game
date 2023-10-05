@@ -2,9 +2,7 @@ class Gameplay {
   constructor(playfield) {
     this.playfield = playfield;
     this.gameEndScreen = document.getElementById("game-over");
-    this.gameWonScreen = document.getElementById("game-won");
     this.gameIsOver = false;
-    this.gameIsWon = false;
     this.kitten = new Kitten(this.playfield, this);
     this.itemList = [Drone, Vacuum]; // Array of item classes
     this.itemsOnScreen = []; // Array to store the items on the screen
@@ -34,7 +32,6 @@ class Gameplay {
     );
     this.soundtrack = new Audio("assets/sounds/soundtrack.mp3");
     this.gameOverSound = new Audio("assets/sounds/gameover.mp3");
-    this.gameWonSound = new Audio("assets/sounds/win.mp3");
     this.soundtrack.loop = true; // Set the soundtrack to loop
     this.soundtrack.play();
 
@@ -81,19 +78,5 @@ class Gameplay {
 
   restartGame() {
     location.reload(); // Reload the page to restart the game
-  }
-
-  gameWon() {
-    this.soundtrack.pause();
-    this.gameWonSound.play();
-    clearInterval(this.itemsInterval); // Clear the interval for creating items
-
-    for (let i = 0; i < this.itemsOnScreen.length; i++) {
-      this.itemsOnScreen[i].destroy(); // Destroy each item on the screen
-    }
-
-    this.kitten.destroy();
-    this.playfield.style.display = "none";
-    this.gameWonScreen.style.display = "flex"; // Show the game over screen
   }
 }

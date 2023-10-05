@@ -10,42 +10,42 @@
 }
 
 body {
-  min-height: 100vh; /* Set minimum height to the full viewport height */
+  min-height: 100vh; 
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Hide overflow to prevent scrolling */
+  overflow: hidden; 
 }
 
 /* bg settings starts --------------------------- */
 section {
-  position: relative; /* Set position as relative for child elements */
-  width: 100%; /* Take up full width of the container */
-  height: 100vh; /* Take up full height of the viewport */
-  background: #000000; /* Set background color */
-  display: flex; /* Use flexbox for vertical alignment */
-  flex-direction: column; /* Arrange child elements vertically */
-  overflow: hidden; /* Hide overflow to prevent scrolling */
+  position: relative;
+  width: 100%; 
+  height: 100vh; 
+  background: #000000; 
+  display: flex; 
+  flex-direction: column; 
+  overflow: hidden; 
 }
 
 section .catsbg {
-  position: relative; /* Set position as relative for proper stacking */
-  top: -600px; /* Move element up by 600px */
-  width: 100%; /* Take up full width of the container */
-  display: flex; /* Use flexbox for horizontal alignment */
-  padding: 10px 0; /* Add padding to top and bottom */
-  white-space: nowrap; /* Prevent wrapping of text */
-  font-size: 64px; /* Set font size */
-  transform: rotate(-30deg); /* Rotate the element by -30 degrees */
-  justify-content: center; /* Center align child elements horizontally */
-  align-items: center; /* Center align child elements vertically */
+  position: relative; 
+  top: -600px; 
+  width: 100%; 
+  display: flex; 
+  padding: 10px 0; 
+  white-space: nowrap; 
+  font-size: 64px; 
+  transform: rotate(-30deg); 
+  justify-content: center; 
+  align-items: center; 
 }
 
 i {
-  color: rgba(61, 58, 59, 0.3); /* Set color with opacity */
-  transition: 1s; /* Add transition effect for smooth color change */
-  padding: 0 5px; /* Add padding to left and right */
-  user-select: none; /* Disable text selection */
-  cursor: default; /* Set cursor style */
+  color: rgba(61, 58, 59, 0.3);
+  transition: 1s; 
+  padding: 0 5px; 
+  user-select: none; 
+  cursor: default; 
 }
 
 i:hover {
@@ -121,7 +121,7 @@ section .catsbg:nth-child(even) div:nth-child(2) {
   align-items: center;
   height: 50px;
   width: 100%;
-  z-index: 0; /* Ajuste o valor de z-index conforme necessário */
+  z-index: 0; 
 }
 
 .playfield {
@@ -177,6 +177,19 @@ section .catsbg:nth-child(even) div:nth-child(2) {
 }
 
 .container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  margin: 50px auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.container2 {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -268,11 +281,34 @@ p {
   justify-content: center;
 }
 
+#game-won {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+}
+
 #game-over img {
   width: 100%;
   height: auto;
   max-width: 500px;
   max-height: 300px;
+  border-radius: 10px;
+}
+
+#game-won img {
+  width: 500px;
+  height: 100%;
+  max-width: 500px;
+  max-height: 700px;
   border-radius: 10px;
 }
 
