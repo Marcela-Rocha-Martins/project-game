@@ -3,8 +3,10 @@ class Gameplay {
     this.playfield = playfield;
     this.gameEndScreen = document.getElementById("game-over");
     this.gameWonScreen = document.getElementById("game-won");
+    this.soundController = document.getElementById("sound-controller");
     this.gameIsOver = false;
     this.gameIsWon = false;
+    this.soundOn = true;
     this.kitten = new Kitten(this.playfield, this);
     this.itemList = [Drone, Vacuum]; // Array of item classes
     this.itemsOnScreen = []; // Array to store the items on the screen
@@ -37,6 +39,10 @@ class Gameplay {
     this.gameWonSound = new Audio("assets/sounds/win.mp3");
     this.soundtrack.loop = true; // Set the soundtrack to loop
     this.soundtrack.play();
+    
+    this.soundController.addEventListener("click", () => {
+      this.handleClickSound();
+    });
 
     this.itemsInterval = setInterval(() => {
       this.createItem(); // Call the createItem() method at regular intervals
@@ -95,5 +101,18 @@ class Gameplay {
     this.kitten.destroy();
     this.playfield.style.display = "none";
     this.gameWonScreen.style.display = "flex"; // Show the game over screen
+  }
+
+  handleClickSound() {
+    console.log("clicou carai");
+    if (this.soundOn === true) {
+      this.soundController.style.backgroundImage = "url('/assets/playfield/mute.png')";
+      this.soundtrack.pause();
+      this.soundOn = false;
+    } else {
+      this.soundController.style.backgroundImage = "url('/assets/playfield/volume.png')";
+      this.soundtrack.play();
+      this.soundOn = true;
+    }
   }
 }

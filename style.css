@@ -139,10 +139,28 @@ section .catsbg:nth-child(even) div:nth-child(2) {
 }
 
 .game-info {
-  position: absolute;
-  top: 0;
-  display: none;
   padding: 20px;
+}
+
+.games-info-all {
+  display: none;
+}
+
+#content-top-screen {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top:0;
+  width: 100vw;
+}
+#sound-controller{
+  width:40px;
+  height:40px;
+  background-size: cover;
+  align-self: center;
+  margin-right: 20px;
+  background-image: url('/assets/playfield/volume.png');
+  cursor: pointer;
 }
 
 #lives-display {

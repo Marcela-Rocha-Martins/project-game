@@ -156,7 +156,7 @@ class Kitten {
       // this.scoreLifeCounter = 0;
       this.increaseLives();
     }
-    this.scoreDisplay.textContent = "score: " + this.score;
+    this.scoreDisplay.textContent = "SCORE: " + this.score;
     this.snackSound.play();
 
     if (this.scoreLifeCounter == 10){
@@ -167,12 +167,12 @@ class Kitten {
 
   increaseLives() {
     ++this.lives;
-    this.livesDisplay.textContent = "lives: " + this.lives;
+    this.livesDisplay.textContent = "LIVES: " + this.lives;
   }
 
   decreaseLives() {
     --this.lives;
-    this.livesDisplay.textContent = "lives: " + this.lives;
+    this.livesDisplay.textContent = "LIVES: " + this.lives;
     this.damageSound.play();
 
     if (this.lives === 0) {
